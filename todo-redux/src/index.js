@@ -6,13 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-
-const reducer = () => {
-  return {
-    task: "Pre-filled",
-    completed: false
-  };
-};
+import { reducer } from "./reducers";
 
 const store = createStore(reducer);
 
