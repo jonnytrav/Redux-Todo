@@ -1,13 +1,6 @@
-const initialState = () => {
-  return {
-    task: "Pre-filled",
-    completed: false
-  };
-};
+import { combineReducers } from "redux";
+import { todosReducer } from "./todosReducer";
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+export const rootReducer = combineReducers({
+  todos: todosReducer
+});

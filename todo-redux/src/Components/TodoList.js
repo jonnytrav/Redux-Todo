@@ -1,17 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import TodoItem from "./TodoItem";
+
 const TodoList = props => {
-  return (
-    <div>
-      <h1>Working!</h1>
-    </div>
-  );
+  return props.todoList.map(todo => {
+    return (
+      <div>
+        <TodoItem task={todo.task} />
+      </div>
+    );
+  });
 };
 
 const mapStateToProps = state => {
   return {
-    todoList: state.todoList
+    todoList: state.todos
   };
 };
 
