@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addTask } from "../actions";
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -14,12 +15,17 @@ class TodoForm extends React.Component {
     // console.log(this.state.currentTask);
   };
 
+  addTodo = e => {
+    e.preventDefault();
+    this.props.addTask(this.state.currentTask);
+  };
+
   render() {
     return (
       <div>
         <form>
           <input onChange={this.handleChange} />
-          <button>Add!</button>
+          <button onClick={this.addTodo}>Add!</button>
         </form>
       </div>
     );
@@ -28,5 +34,5 @@ class TodoForm extends React.Component {
 
 export default connect(
   null,
-  {}
+  { addTask }
 )(TodoForm);
