@@ -18,13 +18,15 @@ class TodoForm extends React.Component {
   addTodo = e => {
     e.preventDefault();
     this.props.addTask(this.state.currentTask);
+    this.setState({ currentTask: "" });
+    console.log(this.state.currentTask);
   };
 
   render() {
     return (
       <div>
         <form>
-          <input onChange={this.handleChange} />
+          <input onChange={this.handleChange} value={this.state.currentTask} />
           <button onClick={this.addTodo}>Add!</button>
         </form>
       </div>

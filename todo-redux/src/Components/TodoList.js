@@ -2,12 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 
 import TodoItem from "./TodoItem";
+import { toggleCompleted } from "../actions";
+import "./Components.css";
 
 const TodoList = props => {
-  return props.todoList.map(todo => {
+  console.log(props);
+  return props.todoList.map((todo, i) => {
     return (
-      <div>
-        <TodoItem task={todo.task} />
+      <div className={todo.completed ? "completed" : null} key={i}>
+        <TodoItem todo={todo} index={i} />
       </div>
     );
   });
@@ -21,5 +24,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { toggleCompleted }
 )(TodoList);

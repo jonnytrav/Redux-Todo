@@ -1,4 +1,5 @@
 export const ADD_TASK = "ADD_TASK";
+export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 
 export const addTask = task => {
   return {
@@ -7,5 +8,12 @@ export const addTask = task => {
       task: task,
       completed: false
     }
+  };
+};
+
+export const toggleCompleted = index => {
+  return {
+    type: TOGGLE_COMPLETED,
+    payload: index
   };
 };
